@@ -797,7 +797,6 @@ export function createStepFn(algo: AlgoType, grid: Grid, start: Cell, goal: Cell
 
   if (algo === 'SimulatedAnnealing') {
     let curr = start;
-    let currDist = getDistance(curr, goal, fakeGoals);
     const parent = new Map<string, Cell>();
     let temp = 100.0;
     const coolingRate = 0.95;
