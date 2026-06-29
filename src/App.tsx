@@ -313,6 +313,13 @@ export default function App() {
   const chapterGridsRef = useRef<Record<number, { grid: Grid; start: Cell; goal: Cell }>>({});
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const logsBoxRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (logsBoxRef.current) {
+      logsBoxRef.current.scrollTop = logsBoxRef.current.scrollHeight;
+    }
+  }, [currentStepIndex, computedSteps]);
 
   const avatarImgRef = useRef<HTMLImageElement | null>(null);
   const meatImgRef = useRef<HTMLImageElement | null>(null);
@@ -1431,7 +1438,7 @@ export default function App() {
                </div>
                 
                 <div className="logs-title">NHẬT KÝ HÀNH ĐỘNG ({currentStepIndex} BƯỚC)</div>
-                <div className="logs-box">
+                <div className="logs-box" ref={logsBoxRef}>
                   {getActionLogs().length === 0 && <span style={{ opacity: 0.5 }}>Chưa có hành động nào.</span>}
                   {getActionLogs().map((log, idx) => (
                     <div key={idx}>
