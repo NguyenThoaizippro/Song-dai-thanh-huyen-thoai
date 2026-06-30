@@ -1458,7 +1458,7 @@ export default function App() {
 
 const displayAlgoName = (name: string) => {
   if (name === 'AStar') return 'A*';
-  if (name === 'BacktrackingSearch') return 'Backtracking có forwardlooking';
+  if (name === 'BacktrackingSearch') return 'Backtracking có forward checking';
   if (name === 'AC3') return 'Backtracking có AC3';
   return name;
 };
